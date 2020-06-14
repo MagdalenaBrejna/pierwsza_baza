@@ -1,0 +1,14 @@
+CREATE TABLE wycieczki
+    ( id_wycieczka NUMBER(3),
+      liczba_uczestnikow NUMBER(3),
+      data_rozpoczecia DATE,
+      id_oferta CHAR(3),
+      uwagi VARCHAR2(40));
+
+CREATE TABLE oferty
+    (id_oferta CHAR(3),
+    nazwa VARCHAR2(20),
+    indywidualni CHAR(1),
+    cena NUMBER(5),
+    grupowi CHAR(1));
+    
