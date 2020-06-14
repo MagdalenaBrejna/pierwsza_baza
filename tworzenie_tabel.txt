@@ -4,6 +4,16 @@ CREATE TABLE wycieczki
       data_rozpoczecia DATE,
       id_oferta CHAR(3),
       uwagi VARCHAR2(40));
+	  
+ALTER TABLE wycieczki
+    MODIFY id_wycieczka not null;
+ALTER TABLE wycieczki
+    MODIFY id_oferta not null;
+ALTER TABLE wycieczki
+    MODIFY liczba_uczestnikow check(liczba_uczestnikow >= 0);
+	
+ALTER TABLE wycieczki
+ADD CONSTRAINT wycieczki primary key (id_wycieczka);
 
 CREATE TABLE oferty
     (id_oferta CHAR(3),
@@ -11,4 +21,18 @@ CREATE TABLE oferty
     indywidualni CHAR(1),
     cena NUMBER(5),
     grupowi CHAR(1));
+	
+ALTER TABLE oferty
+    MODIFY id_oferta not null;   
+ALTER TABLE oferty
+    MODIFY nazwa not null; 
+ALTER TABLE oferty       
+    MODIFY cena check (cena >= 0);    
+ALTER TABLE oferty    
+    MODIFY indywidualni check (indywidualni IN ('T', 'N'));    
+ALTER TABLE oferty    
+    MODIFY grupowi check (grupowi IN ('T', 'N'));
+	
+ALTER TABLE oferty    
+    ADD CONSTRAINT oferty primary key (id_oferta);  
     
