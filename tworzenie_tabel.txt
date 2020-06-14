@@ -13,7 +13,16 @@ ALTER TABLE wycieczki
     MODIFY liczba_uczestnikow check(liczba_uczestnikow >= 0);
 	
 ALTER TABLE wycieczki
-ADD CONSTRAINT wycieczki primary key (id_wycieczka);
+	ADD CONSTRAINT wycieczki primary key (id_wycieczka);
+
+INSERT ALL
+    INTO wycieczki
+        VALUES(201, 14,to_date('19/06/21', 'DD/MM/YY'),'GR2', null)
+    INTO wycieczki
+        VALUES(230,180, to_date('19/07/14', 'DD/MM/YY'),'GR2', null)
+    INTO wycieczki
+        VALUES(241,21, null,'IT1','pandemia')
+    SELECT * FROM dual;
 
 CREATE TABLE oferty
     (id_oferta CHAR(3),
@@ -35,4 +44,15 @@ ALTER TABLE oferty
 	
 ALTER TABLE oferty    
     ADD CONSTRAINT oferty primary key (id_oferta);  
+	
+INSERT ALL
+    INTO oferty
+        VALUES('EG1', 'Egipt_Faraonow', 'T', 5000, 'N')
+    INTO oferty
+        VALUES('GR1', 'Szlak_filozofow', 'N', null, 'T')
+    INTO oferty
+        VALUES('GR2', 'Slonce_Peloponezu', 'T', 4000, 'T')
+    INTO oferty
+        VALUES('IT1', 'Sycylijska_mafia', 'T', null, 'N')
+    SELECT * FROM dual;
     
